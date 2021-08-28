@@ -12,12 +12,11 @@ with open('potential-contacts.txt', 'r') as file:
            if email_format.search(line):
              found = email_format.search(line)
              found = found.group()
-             emails = sorted(found)
              email_list.append(found)
 with open('emails.txt', 'w+') as file:
     cont = file.readlines()
-    for email in email_list:
-        file.write(f'{email}\n')
+    for email in sorted(email_list):
+        file.write(f'{str(email)}\n')
 ##########################################################################
 #for phone numbers :
 phone_nums = []
@@ -44,7 +43,7 @@ with open('potential-contacts.txt', 'r') as file:
             if len(num_found) == 7:
               num_found = f"206{num_found}"
             phone_nums.append(num_found)
-            print(phone_nums)
+            #print(phone_nums)
             phone_nums = sorted(phone_nums)
 with open('phone_numbers.txt', 'w+') as file:
     cont = file.readlines()
